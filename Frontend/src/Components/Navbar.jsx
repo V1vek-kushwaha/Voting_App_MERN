@@ -90,7 +90,7 @@ const Navbar = () => {
                 to="/contact"
                 className="block py-2 px-3 text-slate-800  rounded "
               >
-                Contact
+                Contact Us
               </Link>
             </li>
           </ul>

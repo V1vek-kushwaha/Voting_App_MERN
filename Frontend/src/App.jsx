@@ -7,6 +7,8 @@ import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import LiveElection from "./Components/Elections/LiveElection";
 import Results from "./Components/Elections/Results";
+import About from "./Components/About";
+import Contect from "./Components/Contect";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,6 +27,14 @@ function App() {
         {
           path: "/liveresults",
           element: <Results />,
+        },
+        {
+          path: "/about",
+          element: <About />,
+        },
+        {
+          path: "/contact",
+          element: <Contect />,
         },
       ],
     },

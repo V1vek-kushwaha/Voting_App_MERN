@@ -2,7 +2,7 @@ import React from "react";
 
 const HeroSaction = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 mt-10">
+    <div className="grid grid-cols-2 gap-4 my-10 ">
       <div>
         <h2 className="font-medium my-5 text-slate-800">
           Trusted By Hundreds Of Organizations

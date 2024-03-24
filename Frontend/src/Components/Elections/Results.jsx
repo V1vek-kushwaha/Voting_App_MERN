@@ -23,8 +23,8 @@ const data = {
 
 const Results = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 p-10">
-      <ul className=" divide-y w-2/4 mx-auto divide-gray-200  ">
+    <div className="grid md:grid-cols-2 gap-4 py-10">
+      <ul className="  divide-y md:w-2/4 w-fit mx-auto divide-gray-200  ">
         <li className="pb-3 sm:pb-4">
           <div className="flex items-center space-x-4 rtl:space-x-reverse">
             <div className="flex-shrink-0">
@@ -86,7 +86,7 @@ const Results = () => {
           </div>
         </li>
       </ul>
-      <div className=" w-3/4">
+      <div className=" md:w-3/4 w-fit m-auto">
         <Pie data={data} />
       </div>
     </div>
