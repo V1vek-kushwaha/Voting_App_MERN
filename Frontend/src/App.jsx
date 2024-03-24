@@ -1,36 +1,45 @@
-import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import AddTodo from "./Components/AddTodo";
-import AppName from "./Components/AppName";
-import TodoItems from "./Components/TodoItems";
-import Welcomemsg from "./Components/Welcomemsg";
+import React from "react";
+import Layout from "./Layout/Layout";
+import Home from "./Components/Home";
+import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
+import LiveElection from "./Components/Elections/LiveElection";
+import Results from "./Components/Elections/Results";
 
 function App() {
-  const [todoItems, setTodoItems] = useState([]);
-  const handleAddTodo = (itemName, dueDate) => {
-    const newTodoItems = [
-      ...todoItems,
-      {
-        name: itemName,
-        dueDate: dueDate,
-      },
-    ];
-    setTodoItems(newTodoItems);
-  };
-  const handleDeleteTodo = (todoItemName) => {
-    const newTodoItems = todoItems.filter((item) => item.name !== todoItemName);
-    setTodoItems(newTodoItems);
-  };
-
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <Home />,
+        },
+        {
+          path: "/liveelection",
+          element: <LiveElection />,
+        },
+        {
+          path: "/liveresults",
+          element: <Results />,
+        },
+      ],
+    },
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/signup",
+      element: <SignUp />,
+    },
+  ]);
   return (
     <>
-      <div className=" border-slate-600 border-solid border-2 ">
-        <AppName />
-        <AddTodo onhandle={handleAddTodo} />
-        {todoItems.length <= 0 && <Welcomemsg />}
-
-        <TodoItems todoItems={todoItems} onclickhandler={handleDeleteTodo} />
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }

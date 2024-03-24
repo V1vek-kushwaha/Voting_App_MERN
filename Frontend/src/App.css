@@ -1,9 +1,4 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
+
 
 .logo {
   height: 6em;
@@ -39,4 +34,15 @@
 
 .read-the-docs {
   color: #888;
+}
+
+
+:root {
+  --primary: #00263a;
+  --secondary: 273 100% 36%;
+  --accent: 0 100% 50%;
+
+  --txt: 233 12% 13%;
+  --bg_1: 0 0% 98%;
+  --bg_2: 0 0% 90%;
 }
