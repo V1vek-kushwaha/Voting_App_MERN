@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 //Define the mongoBD connection URL
-const mongoURL = process.env.DB_URL; //replace 'vivek' with your database name
+// const mongoURL = process.env.DB_URL; //replace 'vivek' with your database name
+const mongoURL = process.env.ODB_URL;
 
 //set up connection MongoDB connection
 mongoose.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true });

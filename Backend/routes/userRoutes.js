@@ -14,11 +14,12 @@ router.post("/signup", async (req, res) => {
     }
 
     // Validate Aadhar Card Number must have exactly 12 digit
-    if (!/^\d{12}$/.test(data.aadharCardNumber)) {
-      return res
-        .status(400)
-        .json({ error: "Aadhar Card Number must be exactly 12 digits" });
-    }
+    // if (!/^\d{12}$/.test(data.aadharCardNumber)) {
+    //   return res
+    //     .status(400)
+    //     .json({ error: "Aadhar Card Number must be exactly 12 digits" });
+    // }
+    // console.log(data);
 
     // Check if a user with the same Aadhar Card Number already exists
     const existingUser = await User.findOne({
