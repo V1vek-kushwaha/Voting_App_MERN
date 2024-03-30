@@ -1,8 +1,32 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/logo.png";
+import axios from "axios";
+import { useForm } from "react-hook-form";
 
 const SignUp = () => {
+  const { register, handleSubmit, getValues } = useForm();
+
+  const handleSignup = async () => {
+    await axios
+      .post(`${process.env.REACT_APP_BASE_URL}user/signup`, {
+        name: getValues("name"),
+        age: getValues("age"),
+        email: getValues("email"),
+        mobile: getValues("mobile"),
+        address: getValues("address"),
+        aadhaarCardNumber: getValues("aadhaar"),
+        password: getValues("password"),
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    // console.log(data);
+  };
+
   return (
     <div>
       <div className="container mx-auto  flex">
@@ -12,7 +36,7 @@ const SignUp = () => {
               <img src={Logo} className="h-12" alt="Flowbite Logo" />
             </Link>
             <div className="px-8 py-2">
-              <form>
+              <form onSubmit={handleSubmit(handleSignup)}>
                 <div className="grid gap-4 grid-cols-2">
                   <div className="mb-2">
                     <label
@@ -23,8 +47,8 @@ const SignUp = () => {
                     </label>
                     <input
                       type="text"
-                      name="aadhaar"
                       className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                      {...register("name")}
                     />
                   </div>
                   <div className="mb-2">
@@ -36,8 +60,8 @@ const SignUp = () => {
                     </label>
                     <input
                       type="text"
-                      name="aadhaar"
                       className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                      {...register("age")}
                     />
                   </div>
                   <div className="mb-2">
@@ -49,8 +73,8 @@ const SignUp = () => {
                     </label>
                     <input
                       type="text"
-                      name="aadhaar"
                       className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                      {...register("mobile")}
                     />
                   </div>
                   <div className="mb-2">
@@ -62,8 +86,8 @@ const SignUp = () => {
                     </label>
                     <input
                       type="text"
-                      name="aadhaar"
                       className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                      {...register("email")}
                     />
                   </div>
                   <div className="mb-2">
@@ -75,8 +99,8 @@ const SignUp = () => {
                     </label>
                     <input
                       type="text"
-                      name="aadhaar"
                       className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                      {...register("address")}
                     />
                   </div>
                   <div className="mb-2">
@@ -88,8 +112,8 @@ const SignUp = () => {
                     </label>
                     <input
                       type="text"
-                      name="aadhaar"
                       className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                      {...register("aadhaarno")}
                     />
                   </div>
                   <div className="mb-2">
@@ -101,8 +125,8 @@ const SignUp = () => {
                     </label>
                     <input
                       type="text"
-                      name="password"
                       className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                      {...register("password")}
                     />
                   </div>
                 </div>

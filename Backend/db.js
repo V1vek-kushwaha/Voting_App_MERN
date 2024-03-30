@@ -17,10 +17,10 @@ db.on("connected", () => {
   console.log("connected to mongoDB Server");
 });
 db.on("error", () => {
-  console.log("connected to mongoDB Server");
+  console.log("error in mongoDB Server");
 });
 db.on("disconnected", () => {
-  console.log("connected to mongoDB Server");
+  console.log("disconnected to mongoDB Server");
 });
 
 //export the data connection
