@@ -57,7 +57,7 @@ router.post("/login", async (req, res) => {
     // find the user by aadhaarCardNumber
     const user = User.findOne({ aadhaarCardNumber: aadhaarCardNumber });
 
-    if (!user || !(await user.conparePassword(password))) {
+    if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ error: "invalid username or password " });
     }
     //return token as responce
@@ -86,7 +86,7 @@ router.put("/profile/password", jwtAuthMiddleWare, async (req, res) => {
     const user = await User.findById(userId);
 
     //if password did not match
-    if (!(await user.conparePassword(currentPassword))) {
+    if (!(await user.comparePassword(currentPassword))) {
       return res.status(401).json({ error: "invalid username or password " });
     }
 
