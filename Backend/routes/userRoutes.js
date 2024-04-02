@@ -55,7 +55,7 @@ router.post("/login", async (req, res) => {
     //extract aadhaar and password form request body
     const { aadhaarCardNumber, password } = req.body;
     // find the user by aadhaarCardNumber
-    const user = User.findOne({ aadhaarCardNumber: aadhaarCardNumber });
+    const user = await User.findOne({ aadhaarCardNumber: aadhaarCardNumber });
 
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ error: "invalid username or password " });
@@ -67,7 +67,7 @@ router.post("/login", async (req, res) => {
   }
   const token = generateToken(payload);
     //return token as responce
-    res.json({ token: token });
+    res.json({data: user,token: token });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: "internal server error" });
