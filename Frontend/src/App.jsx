@@ -9,6 +9,7 @@ import LiveElection from "./Components/Elections/LiveElection";
 import Results from "./Components/Elections/Results";
 import About from "./Components/About";
 import Contect from "./Components/Contect";
+import { AuthProvider } from "./Auth/AuthContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -49,7 +50,9 @@ function App() {
   ]);
   return (
     <>
+      <AuthProvider>
       <RouterProvider router={router} />
+      </AuthProvider>
     </>
   );
 }

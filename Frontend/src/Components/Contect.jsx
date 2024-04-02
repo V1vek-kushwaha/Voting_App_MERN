@@ -167,7 +167,7 @@ const Contect = () => {
                   <div>
                     <button
                       type="submit"
-                      class="w-full p-3 mt-4 bg-indigo-600 text-white rounded shadow"
+                      className="w-full p-3 mt-4 bg-indigo-600 text-white rounded shadow"
                     >
                       Send Message
                     </button>

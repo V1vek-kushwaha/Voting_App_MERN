@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../assets/logo.png";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../Auth/AuthContext";
 
 const Login = () => {
+  const { register, handleSubmit, getValues } = useForm();
+  const {signIn}=useContext(AuthContext)
+
+  const SignInHandler =()=>{
+    signIn(getValues(["aadhaar","password"]))
+  }
   return (
     <>
       <div className="container mx-auto p-8 flex">
@@ -12,7 +20,7 @@ const Login = () => {
               <img src={Logo} className="h-12" alt="Flowbite Logo" />
             </Link>
             <div className="p-8">
-              <form>
+              <form onSubmit={handleSubmit(SignInHandler)}>
                 <div className="mb-5">
                   <label
                     htmlFor="text"
@@ -24,6 +32,7 @@ const Login = () => {
                     type="text"
                     name="aadhaar"
                     className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                    {...register("aadhaar")}
                   />
                 </div>
                 <div className="mb-5">
@@ -34,9 +43,10 @@ const Login = () => {
                     Password
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     name="password"
                     className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
+                    {...register("password")}
                   />
                 </div>
                 <button

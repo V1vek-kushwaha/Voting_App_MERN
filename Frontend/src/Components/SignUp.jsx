@@ -7,23 +7,25 @@ import { useForm } from "react-hook-form";
 const SignUp = () => {
   const { register, handleSubmit, getValues } = useForm();
 
-  const handleSignup = async () => {
-    await axios
-      .post(`${process.env.REACT_APP_BASE_URL}user/signup`, {
-        name: getValues("name"),
-        age: getValues("age"),
-        email: getValues("email"),
-        mobile: getValues("mobile"),
-        address: getValues("address"),
-        aadhaarCardNumber: getValues("aadhaar"),
-        password: getValues("password"),
-      })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+  const handleSignup = async (data) => {
+    console.log(data);
+    // await axios
+    //   .post(`${import.meta.env.VITE_BASE_URL}user/signup`, {
+    //     name: getValues("name"),
+    //     age: getValues("age"),
+    //     email: getValues("email"),
+    //     mobile: getValues("mobile"),
+    //     address: getValues("address"),
+    //     aadhaarCardNumber: getValues("aadhaar"),
+    //     password: getValues("password"),
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+        
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
     // console.log(data);
   };
 
