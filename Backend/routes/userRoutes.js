@@ -60,6 +60,12 @@ router.post("/login", async (req, res) => {
     if (!user || !(await user.comparePassword(password))) {
       return res.status(401).json({ error: "invalid username or password " });
     }
+
+    // generate Token 
+    const payload = {
+      id: user.id,
+  }
+  const token = generateToken(payload);
     //return token as responce
     res.json({ token: token });
   } catch (err) {
