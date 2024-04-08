@@ -10,6 +10,7 @@ import Results from "./Components/Elections/Results";
 import About from "./Components/About";
 import Contect from "./Components/Contect";
 import { AuthProvider } from "./Auth/AuthContext";
+import Profile from "./Components/Profile";
 
 function App() {
   const router = createBrowserRouter([
@@ -36,6 +37,10 @@ function App() {
         {
           path: "/contact",
           element: <Contect />,
+        },
+        {
+          path: "/profile",
+          element: <Profile />,
         },
       ],
     },

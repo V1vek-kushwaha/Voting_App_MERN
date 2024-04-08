@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Auth/AuthContext";
+import { useNavigate  } from 'react-router-dom';
+
 const Navbar = () => {
+  const {token,userInfo,signOut}=useContext(AuthContext)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+
+
+  const signOuthandler =()=>{
+    signOut()
+    navigate("/")
+    window.location.reload()
+  }
+  
+
   return (
     <nav className="bg-white mb-2  w-full  top-0 start-0 border-b border-gray-200 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
@@ -12,14 +27,52 @@ const Navbar = () => {
           <img src={Logo} className="h-12" alt="Flowbite Logo" />
         </Link>
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <Link to="/login">
+       {token ? 
+       
+<div>
+  <button onClick={() => setIsMenuOpen((prev) => !prev)}  id="dropdownAvatarNameButton"  data-dropdown-toggle="dropdownAvatarName" className="flex items-center text-sm pe-1 font-medium text-gray-900 rounded-full hover:text-blue-600 dark:hover:text-blue-500 md:me-8 focus:ring-1 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-slate-900" type="button">
+    <span className="sr-only">Open user menu</span>
+    <img className="w-8 h-8 me-2 rounded-full" src="https://xsgames.co/randomusers/avatar.php?g=male" />
+    {userInfo.name}
+    <svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m1 1 4 4 4-4" />
+    </svg>
+  </button>
+  {/* Dropdown menu */}
+  <div id="dropdownAvatarName" className={`${
+                        isMenuOpen ? "" : "hidden"
+                    } dark:-bg--clr-neutral-900 z-10 absolute  mt-4  bg-white divide-y divide-gray-100 rounded-lg shadow w-40 dark:bg-gray-700 dark:divide-gray-600`}>
+    <div className="px-4 py-3 text-sm text-gray-900 dark:text-white">
+      <div className="font-medium ">User</div>
+     
+    </div>
+    <ul className="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownInformdropdownAvatarNameButtonationButton">
+  <li>
+        <Link to="/profile" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</Link>
+      </li>
+      <li>
+        <a href="#" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+      </li>
+   
+    </ul>
+    <div className="py-2">
+      <a href="#" type="button" onClick={signOuthandler} className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+    </div>
+  </div>
+</div>
+
+
+       
+       
+       
+       : <Link to="/login">
             <button
               type="button"
               className="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-[#00263a] dark:border-gray-700 dark:text-white dark:hover:bg-gray-800 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600"
             >
               Sign In
             </button>
-          </Link>
+          </Link>}   
           <button
             data-collapse-toggle="navbar-sticky"
             type="button"
