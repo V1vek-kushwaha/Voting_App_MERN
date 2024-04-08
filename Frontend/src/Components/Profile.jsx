@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Auth/AuthContext";
 import { useForm } from "react-hook-form";
-import { Axios } from "axios";
+import axios, * as others from 'axios';
 
 const Profile = () => {
   const {userInfo,token}=useContext(AuthContext)
@@ -16,16 +16,19 @@ const Profile = () => {
     
   }
   const handleChangePass =async()=>{
-    let config = {
-      headers: {
-        'Authorization': `Bearer ${token}` 
-      }
-    }
-    await Axios
-      .post(`${import.meta.env.VITE_BASE_URL}profile/password`,config, {
+   
+    await axios
+   
+      .put(`${import.meta.env.VITE_BASE_URL}profile/password`, {
+       
         currentPassword: getValues("cpassword"),
         newPassword: getValues("npassword"),       
-      })
+      },{
+        headers: {
+          'Authorization': `Bearer ${token}` 
+        }
+      }
+    )
       .then(function (response) {
         console.log(response);
         
@@ -33,7 +36,9 @@ const Profile = () => {
       .catch(function (error) {
         console.log(error);
       });
-    console.log(data);
+    
+
+  
   }
 
   return (
@@ -132,11 +137,11 @@ const Profile = () => {
        <form onSubmit={handleSubmit(handleChangePass)}  className="space-y-4" action="#">
          <div>
            <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Current Passwords</label>
-           <input {...register("cpassword")} type="text" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"  required />
+           <input  type="text" name="email" id="email" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" {...register("cpassword")} required />
          </div>
          <div>
            <label htmlFor="password" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">New password</label>
-           <input {...register("npassword")} type="password" name="password" id="password"  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required />
+           <input type="password" name="password" id="password"  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" {...register("npassword")} required />
          </div>
         
          <button type="submit" className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Change Password</button>
