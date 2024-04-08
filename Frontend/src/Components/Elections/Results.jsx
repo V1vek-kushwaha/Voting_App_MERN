@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "chart.js/auto";
 import { Pie } from "react-chartjs-2";
+import axios, * as others from 'axios';
+
 const data = {
   labels: ["INC", "BJP", "AAP", "SP", "JAP", "TMC", "BSP"],
   datasets: [
@@ -22,6 +24,20 @@ const data = {
 };
 
 const Results = () => {
+  const [cdata,setCData]=useState([])
+
+  useEffect(()=>{
+    axios.get(`${import.meta.env.VITE_BASE_URL}candidate/votecount`)
+   .then(function (response) {
+     // handle success
+     setCData(response.data)
+     console.log(response.data)
+   })
+   .catch(function (error) {
+     // handle error
+     console.log(error);
+   })
+ },[])
   return (
     <div className="grid md:grid-cols-2 gap-4 py-10">
       <ul className="  divide-y md:w-2/4 w-fit mx-auto divide-gray-200  ">
