@@ -126,7 +126,7 @@ router.get('/vote/:candidateID', jwtAuthMiddleWare, async (req, res)=>{
 });
 
 // vote count 
-router.get('/vote/count', async (req, res) => {
+router.get('/votecount', async (req, res) => {
     try{
         // Find all candidates and sort them by voteCount in descending order
         const candidate = await Candidate.find().sort({voteCount: 'desc'});

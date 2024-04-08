@@ -1,8 +1,11 @@
 import axios, * as others from 'axios';
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AuthContext } from '../../Auth/AuthContext';
 
 const LiveElection = () => {
   const [cdata,setCData]=useState([])
+  const {token}=useContext(AuthContext)
+
   useEffect(()=>{
      axios.get(`${import.meta.env.VITE_BASE_URL}candidate`)
     .then(function (response) {
@@ -17,9 +20,10 @@ const LiveElection = () => {
   },[])
 
 
-  const handleVote = async(candidateID)=>{
+  const handleVote = async(id)=>{
+    
     await axios   
-    .put(`${import.meta.env.VITE_BASE_URL}vote/${candidateID}`,{
+    .get(`${import.meta.env.VITE_BASE_URL}candidate/vote/${id}`,{
       headers: {
         'Authorization': `Bearer ${token}` 
       }
@@ -64,7 +68,7 @@ const LiveElection = () => {
            className="inline-block rounded-full border-2 border-neutral-50 px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal bg-[#00263a] text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-300 hover:text-neutral-200 focus:border-neutral-300 focus:text-neutral-200 focus:outline-none focus:ring-0 active:border-neutral-300 active:text-neutral-200 dark:hover:bg-neutral-600 dark:focus:bg-neutral-600"
            data-twe-ripple-init
            data-twe-ripple-color="light"
-          //  onClick={handleVote(data.)}
+           onClick={()=>handleVote(data._id)}
          >
            Vote
          </button>
