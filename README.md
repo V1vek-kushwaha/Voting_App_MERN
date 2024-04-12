@@ -2,7 +2,8 @@
 
 This is a simple web application for conducting online polls and voting.
 
-![alt text](https://drive.google.com/file/d/1C5iM-oxM_65zdoJ7YyTc4xKB2rRmPD0X/view?usp=sharing)
+![Capture](https://github.com/V1vek-kushwaha/Voting_App/assets/76741436/46e0f60c-f2d8-48d9-ae6a-98efca103529)
+
 
 ## Features
 
