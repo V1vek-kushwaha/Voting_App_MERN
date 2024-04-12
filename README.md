@@ -2,7 +2,7 @@
 
 This is a simple web application for conducting online polls and voting.
 
-![alt text](screenshots/filename.png "Description goes here")
+![alt text]([screenshots/filename.png](https://drive.google.com/file/d/1C5iM-oxM_65zdoJ7YyTc4xKB2rRmPD0X/view?usp=sharing) )
 
 ## Features
 
