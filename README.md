@@ -2,6 +2,8 @@
 
 This is a simple web application for conducting online polls and voting.
 
+![alt text](screenshots/filename.png "Description goes here")
+
 ## Features
 
 - User authentication
