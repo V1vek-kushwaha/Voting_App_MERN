@@ -40,7 +40,7 @@ const LiveElection = () => {
   )
     .then(function (response) {
       console.log(response);
-      toast('Here is your toast.')
+      toast.success('Successfully Voted')
       
     })
     .catch(function (error) {

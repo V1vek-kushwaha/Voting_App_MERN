@@ -4,23 +4,30 @@ import Logo from "../assets/logo.png";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Auth/AuthContext";
 import { useNavigate  } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 const Login = () => {
   const { register, handleSubmit, getValues } = useForm();
   const {signIn}=useContext(AuthContext)
   const [loading, setLoading] = useState(false);
+  
   const navigate = useNavigate();
 
   const SignInHandler = async ()=>{
     try{
       setLoading(true)
      await signIn(getValues("aadhaar"),getValues("password"),);
+     toast.success('Login Successfully')
+
      navigate('/');
      window.location.reload()
 
 
     }catch (error) {
       console.error('Login failed:', error.message);
+      toast.error(error.response.data.message)
+
       setLoading(false)
 
       // Display error message
@@ -97,6 +104,8 @@ const Login = () => {
           </div>
         </div>
       </div>
+      <Toaster />
+
     </>
   );
 };
