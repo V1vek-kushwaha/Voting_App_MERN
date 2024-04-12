@@ -69,7 +69,7 @@ const Contect = () => {
                 </a>
 
                 {/* Whatsapp */}
-                <a href="https://wa.me/8726380749">
+                <a href="https://wa.me/+918726380749">
                   <button
                     type="button"
                     data-twe-ripple-init

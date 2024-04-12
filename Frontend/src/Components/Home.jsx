@@ -34,8 +34,8 @@ const Home = () => {
         needs
       </h1>
 
-      <div className="my-16 grid divide-x divide-y  divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-3xl border border-gray-100 text-gray-600 dark:border-gray-700 sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
-        <div className="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+      <div className="my-16 grid divide-x divide-y  divide-gray-100 dark:divide-gray-700 overflow-hidden rounded-2xl border border-gray-100 text-gray-600  sm:grid-cols-2 lg:grid-cols-4 lg:divide-y-0 xl:grid-cols-4">
+        <div className="group relative bg-white  transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
           <div className="relative space-y-8 py-12 p-8">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341139.png"
@@ -45,10 +45,10 @@ const Home = () => {
               alt="burger illustration"
             />
             <div className="space-y-2">
-              <h5 className="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary">
+              <h5 className="text-xl font-semibold text-gray-700 transition group-hover:text-secondary">
                 User Authentication
               </h5>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600">
                 The system allows users to register and authenticate themselves
                 securely. This ensures that only eligible voters can participate
                 in the voting process, maintaining the integrity of the
@@ -57,7 +57,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+        <div className="group relative bg-white  transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
           <div className="relative space-y-8 py-12 p-8">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341134.png"
@@ -67,10 +67,10 @@ const Home = () => {
               alt="burger illustration"
             />
             <div className="space-y-2">
-              <h5 className="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary">
+              <h5 className="text-xl font-semibold text-gray-700  transition group-hover:text-secondary">
                 Candidate Registration:
               </h5>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 ">
                 Candidates can register their profiles on the platform,
                 providing details such as their name, party affiliation, and
                 campaign manifesto.
@@ -78,7 +78,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="group relative bg-white dark:bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+        <div className="group relative bg-white  transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
           <div className="relative space-y-8 py-12 p-8">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341160.png"
@@ -88,10 +88,10 @@ const Home = () => {
               alt="burger illustration"
             />
             <div className="space-y-2">
-              <h5 className="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary">
+              <h5 className="text-xl font-semibold text-gray-700  transition group-hover:text-secondary">
                 Transparent and Verifiable
               </h5>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600">
                 The e-voting system maintains transparency and verifiability by
                 recording each vote in the database. This allows for auditing
                 and verification of the election results
@@ -99,7 +99,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <div className="group relative bg-gray-50 dark:bg-gray-900 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
+        <div className="group relative bg-gray-50  transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
           <div className="relative space-y-8 py-12 p-8 transition duration-300 group-hover:bg-white dark:group-hover:bg-gray-800">
             <img
               src="https://cdn-icons-png.flaticon.com/512/4341/4341025.png"
@@ -109,10 +109,10 @@ const Home = () => {
               alt="burger illustration"
             />
             <div className="space-y-2">
-              <h5 className="text-xl font-semibold text-gray-700 dark:text-white transition group-hover:text-secondary">
+              <h5 className="text-xl font-semibold text-gray-700  transition group-hover:text-secondary">
                 Real-time Result Tabulation
               </h5>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-600 ">
                 As votes are cast, the system continuously tabulates the results
                 in real-time. This provides instant visibility into the current
                 state of the elections and helps in monitoring the progress.
@@ -137,10 +137,10 @@ const Home = () => {
                 />
               </div>
               <div className="md:7/12 lg:w-1/2">
-                <h2 className="text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
+                <h2 className="text-3xl font-bold text-gray-900 md:text-4xl ">
                   Trusted by over Many users and
                 </h2>
-                <p className="my-8 text-gray-600 dark:text-gray-300">
+                <p className="my-8 text-gray-600 ">
                   These features collectively contribute to making online voting
                   apps a secure, convenient, and inclusive option for conducting
                   elections and gathering public input. However, it's essential

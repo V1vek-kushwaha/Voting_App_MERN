@@ -37,7 +37,10 @@ const HeroSaction = () => {
         </button>
       </div>
 
-      <div></div>
+      <div>
+
+      <img src="../imn.svg" class="object-contain  p-9"/>
+      </div>
     </div>
   );
 };
