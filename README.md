@@ -25,7 +25,7 @@ This is a simple web application for conducting online polls and voting.
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/V1vek-kushwaha/voting-app.git
+    git clone https://github.com/V1vek-kushwaha/Voting_App_MERN.git
     ```
 
 2. **Install dependencies:**
