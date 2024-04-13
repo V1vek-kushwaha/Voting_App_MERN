@@ -27,7 +27,7 @@ const SignUp = () => {
         email: getValues("email"),
         mobile: getValues("mobile"),
         address: getValues("address"),
-        aadhaarCardNumber: getValues("aadhaar"),
+        aadhaarCardNumber: getValues("aadhaarno"),
         password: getValues("password"),
       })
       .then(function (response) {
