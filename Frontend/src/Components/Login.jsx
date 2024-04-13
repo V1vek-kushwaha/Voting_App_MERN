@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 
 const Login = () => {
-  const { register, handleSubmit, getValues } = useForm();
+  const { register, handleSubmit,formState: { errors }, getValues } = useForm();
   const {signIn}=useContext(AuthContext)
   const [loading, setLoading] = useState(false);
   
@@ -57,8 +57,10 @@ const Login = () => {
                     type="text"
                     name="aadhaar"
                     className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
-                    {...register("aadhaar")}
+                    {...register("aadhaar" ,{required: "aadhaar is required",})}
                   />
+                     {errors.aadhaar && <p role="alert" className="text-red-500">{errors.aadhaar.message}</p>}
+
                 </div>
                 <div className="mb-5">
                   <label
@@ -71,8 +73,10 @@ const Login = () => {
                     type="password"
                     name="password"
                     className="block w-full p-3 rounded bg-gray-200 border border-transparent focus:outline-none"
-                    {...register("password")}
+                    {...register("password" ,{required: "password is required",})}
                   />
+     {errors.password && <p role="alert" className="text-red-500">{errors.password.message}</p>}
+
                 </div>
              {loading === true ?
               <button disabled type="button"  className="w-full p-3 mt-4 bg-indigo-600 text-white rounded shadow">
